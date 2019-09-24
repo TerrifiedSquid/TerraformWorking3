@@ -3,13 +3,13 @@ terraform {
   backend "s3" {
     bucket = "terraform-bucket-arran"
     key    = "terraform.tfstate"
-    region = "eu-paris"
+    region = "eu-west-3"
   }
 }
 
 # Use AWS Terraform provider
 provider "aws" {
-  region = "eu-paris"
+  region = "eu-west-3"
 }
 
 # Create EC2 instance
