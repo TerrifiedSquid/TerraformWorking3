@@ -27,8 +27,8 @@ resource "aws_instance" "default" {
 }
 
 # Create Security Group for EC2
-resource "aws_security_group" "group_id" {
-  group_id = "sg-f4a44196"
+resource "aws_security_group" "default" {
+  name = "terraform-default-sg"
 
   
   ingress {
