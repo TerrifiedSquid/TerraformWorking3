@@ -30,9 +30,7 @@ resource "aws_instance" "default" {
 resource "aws_security_group" "default" {
   name = "terraform-default-sg"
   
-lifecycle {
-    create_before_destroy = true
-  }
+
   
   ingress {
     from_port   = 80
@@ -48,4 +46,8 @@ lifecycle {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  lifecycle {
+    create_before_destroy = true
+  }
+  
 }
