@@ -17,7 +17,7 @@ resource "aws_instance" "terraformjenkins" {
   ami                    = "${var.ami}"
   count                  = "${var.notcount}"
   key_name               = "${var.key_name}"
-  vpc_security_group_ids = ["${aws_security_group.terraformjenkins.id}"]
+  vpc_security_group_ids = ["${aws_security_group.default.id}"]
   source_dest_check      = false
   instance_type          = "${var.instance_type}"
 
@@ -27,8 +27,8 @@ resource "aws_instance" "terraformjenkins" {
 }
 
 # Create Security Group for EC2
-resource "aws_security_group" "terraformjenkins" {
-  name = "terraform-terraformjenkins-sg"
+resource "aws_security_group" "default" {
+  name = "terraform-default-sg"
 
   
   ingress {
