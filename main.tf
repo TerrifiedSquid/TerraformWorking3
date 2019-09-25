@@ -17,7 +17,7 @@ resource "aws_instance" "default" {
   ami                    = "${var.ami}"
   count                  = "${var.notcount}"
   key_name               = "${var.key_name}"
-  vpc_security_group_ids = ["${aws_security_group.default.id}"]
+  vpc_security_group_ids = ["${aws_security_group.terraformjenkins.id}"]
   source_dest_check      = false
   instance_type          = "${var.instance_type}"
 
