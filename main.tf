@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 # Create EC2 instance
-resource "aws_instance" "terraformjenkins" {
+resource "aws_instance" "default" {
   ami                    = "${var.ami}"
   count                  = "${var.notcount}"
   key_name               = "${var.key_name}"
