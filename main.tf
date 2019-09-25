@@ -29,10 +29,6 @@ resource "aws_instance" "default" {
 # Create Security Group for EC2
 resource "aws_security_group" "default" {
  name = "terraform-default-sg"
-  lifecycle {
-    create_before_destroy = true
-  }
-
 
   
   ingress {
