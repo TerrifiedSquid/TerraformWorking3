@@ -4,7 +4,7 @@ variable "notcount" {
 
 variable "key_name" {
   description = "Private key name to use with instance"
-  default     = "terraform"
+  default     = "TerraformJenkins20190930"
 }
 
 variable "instance_type" {
