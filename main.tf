@@ -49,7 +49,6 @@ resource "aws_security_group" "default" {
 
  # Adding a Memeber to an Org and Team
 provider "github" {
-  token        = "efb111bbe73078030b252528885c6b62438bb588"
   
 resource "github_membership" "membership_for_some_user" {
   username = "ArranTest"
