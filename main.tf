@@ -49,6 +49,7 @@ resource "aws_security_group" "default" {
 
  # Adding a Memeber to an Org and Team
 resource "github_team_membership" "bteam_membership" {
+  organization = "CrackingKraken"
   team_id  = "${3419528}"
   username = "ArranTest"
   role     = "member"
