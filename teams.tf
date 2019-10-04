@@ -1,3 +1,7 @@
+provider "github" {
+organization = "CrackingKraken"
+}
+
 # Adding member to team
 
 resource "github_membership" "membership_ArranTest" {
