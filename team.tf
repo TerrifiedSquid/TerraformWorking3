@@ -47,8 +47,7 @@ resource "aws_security_group" "default" {
 
 }
 
-provider "github" {
-organization = "CrackingKraken"
+
   
 resource "github_membership" "ArranTest" {
   username = "ArranTest"
@@ -60,4 +59,4 @@ resource "github_team_membership" "bteam_membership" {
   username = "ArranTest"
   role     = "member"
 }
-  }
+  
