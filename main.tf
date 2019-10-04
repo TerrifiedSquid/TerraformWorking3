@@ -45,4 +45,27 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   
+  resource "github_team_membership" "bteam_membership" {
+  team_id  = "${3419528}"
+  username = "ArranHL"
+  role     = "member"
+}
+
+resource "github_team_membership" "cteam_membership" {
+  team_id  = "${3419529}"
+  username = "ArranHL"
+  role     = "member"
+}
+
+resource "github_membership" "ArranTest" {
+  username = "ArranTest"
+  role     = "member"
+}
+
+resource "github_team_membership" "ateam2_membership" {
+  team_id  = "${3419530}"
+  username = "ArranTest"
+  role     = "member"
+}
+  
 }
