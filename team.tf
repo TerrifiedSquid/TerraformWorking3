@@ -49,6 +49,8 @@ resource "aws_security_group" "default" {
 
 
 # Adding member to team
+provider "github" {
+  organization = "CrackingKraken"
 resource "github_membership" "membership_ArranTest" {
   username = "ArranTest"
   role     = "member"
@@ -63,5 +65,6 @@ resource "github_team_membership" "bteam_membership" {
   role     = "member"
 }
 
+  }
 
   
