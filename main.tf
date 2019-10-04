@@ -50,7 +50,7 @@ resource "aws_security_group" "default" {
 
 # Adding member to team
 
-  provider = "github" {
+  provider "github" {
 organization = "CrackingKraken"
 resource "github_membership" "membership_ArranTest" {
   username = "ArranTest"
