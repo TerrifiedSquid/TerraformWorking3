@@ -49,22 +49,25 @@ resource "aws_security_group" "default" {
 
 
 # Adding member to team
-provider "github" {
-  organization = "CrackingKraken"
+
+  
 resource "github_membership" "membership_ArranTest" {
+  organization = "CrackingKraken"
   username = "ArranTest"
   role     = "member"
 }
 resource "github_team" "bteam" {
+  organization = "CrackingKraken"
   name        = "SomeTeam"
   description = "Some cool team"
 }
 resource "github_team_membership" "bteam_membership" {
+  organization = "CrackingKraken"
   team_id  = "${3419528}"
   username = "ArranTest"
   role     = "member"
 }
 
-  }
+  
 
   
