@@ -48,9 +48,6 @@ resource "aws_security_group" "default" {
 }
 
  # Adding a Memeber to an Org and Team
-
-
-}
 resource "github_membership" "membership_for_some_user" {
   username = "ArranTest"
   role     = "member"
