@@ -44,7 +44,10 @@ resource "aws_security_group" "default" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
   
+}
+
   resource "github_team_membership" "bteam_membership" {
   team_id  = "${3419528}"
   username = "ArranHL"
@@ -66,6 +69,4 @@ resource "github_team_membership" "ateam2_membership" {
   team_id  = "${3419530}"
   username = "ArranTest"
   role     = "member"
-}
-  
 }
