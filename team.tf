@@ -58,7 +58,7 @@ resource "github_team" "bteam" {
   description = "Some cool team"
 }
 resource "github_team_membership" "bteam_membership" {
-  team_id  = "${github_team.3419528}"
+  team_id  = "${3419528}"
   username = "ArranTest"
   role     = "member"
 }
