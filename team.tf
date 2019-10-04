@@ -49,14 +49,19 @@ resource "aws_security_group" "default" {
 
 
   
-resource "github_membership" "ArranTest" {
+resource "github_membership" "membership_ArranTest" {
+  username = "ArranTest"
+  role     = "member"
+}
+resource "github_team" "bteam" {
+  name        = "SomeTeam"
+  description = "Some cool team"
+}
+resource "github_team_membership" "bteam_membership" {
+  team_id  = "${github_team.3419528}"
   username = "ArranTest"
   role     = "member"
 }
 
-resource "github_team_membership" "bteam_membership" {
-  team_id  = "${3419528}"
-  username = "ArranTest"
-  role     = "member"
 }
   
