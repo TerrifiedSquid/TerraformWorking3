@@ -9,7 +9,7 @@ variable "key_name" {
 
 variable "key_name_teams" {
   description = "Private key name to use with instance"
-  default     = "JenkinsKey20191007"
+  default1     = "JenkinsKey20191007"
 }
 
 variable "instance_type" {
