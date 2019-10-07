@@ -6,7 +6,7 @@ organization = "TerrifiedSquid"
 
 # Adding member to team
 
-resource "github_team" "some_team" {
+resource "github_team" "squid1" {
   name        = "squid1"
   description = "way down on the ocean floor"
   privacy     = "closed"
