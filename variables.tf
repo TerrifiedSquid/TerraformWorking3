@@ -7,9 +7,10 @@ variable "key_name" {
   default     = "GithubSecretNew1"
 }
 
-variable "key_name_teams" {
+variable "github_token" {
   description = "Private key name to use with instance"
-  default1     = "JenkinsKey20191007"
+  default   = "JenkinsKey20191007"
+
 }
 
 variable "instance_type" {
