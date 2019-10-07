@@ -3,7 +3,7 @@ organization = "CrackingKraken"
 }
 
 # Adding member to team
-resource "teams_key" "default" {
+resource "teams_key" "key" {
   key_name   = "${var.key_name_teams}"
   }
 resource "github_membership" "membership_ArranTest" {
