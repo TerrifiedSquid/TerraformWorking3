@@ -4,7 +4,7 @@ variable "notcount" {
 
 variable "key_name" {
   description = "Private key name to use with instance"
-  default     = "GithubSecretNew1"
+  default     = "TerraformJenkins20190930"
 }
 
 variable "github_token" {
