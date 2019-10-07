@@ -15,6 +15,12 @@ variable "key_name" {
   
 }
 
+# The following variable is meant to point back to  
+variable "github_token" {
+  description = "Token for Access"
+  default   = "JenkinsKey20191007"
+}
+
 variable "instance_type" {
   description = "AWS instance type"
   default     = "t3.small"
