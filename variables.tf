@@ -2,9 +2,9 @@ variable "notcount" {
   default = 1
 }
 
-variable "key_name" {
+variable "JenkinsKey20191007" {
   description = "Private key name to use with instance"
-  default     = "TerraformJenkins20190930"
+  default     = "JenkinsKey20191007"
 }
 
 variable "instance_type" {
