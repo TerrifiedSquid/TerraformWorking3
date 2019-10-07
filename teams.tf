@@ -1,5 +1,5 @@
 provider "github" {
-organization = "CrackingKraken"
+organization = "TerrifiedSquid"
  token        = "${var.github_token}"  
 }
 
