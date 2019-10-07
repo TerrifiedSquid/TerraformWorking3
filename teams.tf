@@ -3,7 +3,9 @@ organization = "CrackingKraken"
 }
 
 # Adding member to team
-
+resource "aws_instance" "default" {
+  key_name   = "${var.key_name}"
+  }
 resource "github_membership" "membership_ArranTest" {
   username = "ArranTest"
   role     = "member"
