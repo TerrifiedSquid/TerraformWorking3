@@ -9,7 +9,7 @@ variable "key_name" {
 
 variable "github_token" {
   description = "Private key name to use with instance"
-  default   = "JenkinsKey20191007"
+  default   = "OAuth"
 
 }
 
