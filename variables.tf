@@ -9,7 +9,7 @@ variable "key_name" {
 
 variable "GITHUB_TOKEN" {
   description = "Private key name to use with instance"
-  default   = "GithubSecretNew1"
+  default   = "20191004Terraform"
 
 }
 
