@@ -3,14 +3,18 @@ variable "notcount" {
 }
 
 variable "key_name" {
-  description = "Private key name to use with instance"
+  description = "AWS key"
   default     = "TerraformJenkins20190930"
 }
 
-variable "GITHUB_TOKEN" {
-  description = "Private key name to use with instance"
+variable "github_token" {
+  description = "Token for Access"
   default   = "20191004Terraform"
 
+  variable "organization" {
+  description = "Organization Name"
+  default   = "TerrifiedSquid"
+  
 }
 
 variable "instance_type" {
