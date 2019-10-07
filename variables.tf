@@ -7,6 +7,11 @@ variable "key_name" {
   default     = "JenkinsKey20191007"
 }
 
+variable "key_name_teams" {
+  description = "Private key name to use with instance"
+  default     = "JenkinsKey20191007"
+}
+
 variable "instance_type" {
   description = "AWS instance type"
   default     = "t3.small"
