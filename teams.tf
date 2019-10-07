@@ -1,6 +1,6 @@
 provider "github" {
 organization = "CrackingKraken"
-
+  key_name_teams         = "${var.key_name_teams}"
 }
 
 # Adding member to team
