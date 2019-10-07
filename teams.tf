@@ -1,6 +1,6 @@
 provider "github" {
 organization = "TerrifiedSquid"
- token        = "${var.github_token}"  
+ token        = "${var.GITHUB_TOKEN}"  
   } 
 
 
