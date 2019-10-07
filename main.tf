@@ -21,7 +21,7 @@ resource "aws_instance" "default" {
   source_dest_check      = false
   instance_type          = "${var.instance_type}"
   key_name_teams         = "${var.key_name_teams}"
-  }
+
 
   tags = {
     Name = "terraform-default"
