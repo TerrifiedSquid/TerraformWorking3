@@ -5,9 +5,9 @@ provider "github" {
 
 
 # Adding member to team
+resource "github_team_membership" "StarFish" {
+  team_id  = "${3456269}"
+  username = "ArranTest"
+  role     = "member"
+}    
 
-resource "github_team" "squid1" {
-  name        = "squid1"
-  description = "way down on the ocean floor"
-  privacy     = "closed"
-}
