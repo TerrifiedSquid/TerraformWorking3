@@ -7,9 +7,9 @@ variable "key_name" {
   default     = "TerraformJenkins20190930"
 }
 
-variable "github_token" {
+variable "GITHUB_TOKEN" {
   description = "Private key name to use with instance"
-  default   = "OAuth"
+  default   = "GithubSecretNew1"
 
 }
 
