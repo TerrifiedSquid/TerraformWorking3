@@ -10,6 +10,7 @@ variable "key_name" {
 variable "github_token" {
   description = "Token for Access"
   default   = "20191004Terraform"
+}
 
   variable "organization" {
   description = "Organization Name"
