@@ -1,7 +1,7 @@
 provider "github" {
 organization = "TerrifiedSquid"
  token        = "${var.github_token}"  
-}
+
 
 
 # Adding member to team
@@ -19,4 +19,4 @@ resource "github_team_membership" "bteam_membership" {
   username = "ArranTest"
   role     = "member"
 }
-    
+  }  
