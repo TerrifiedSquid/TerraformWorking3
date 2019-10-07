@@ -7,10 +7,7 @@ variable "key_name" {
   default     = "TerraformJenkins20190930"
 }
 
-variable "github_token" {
-  description = "Token for Access"
-  default   = "TerraformOAuth"
-}
+
 
   variable "github_organization" {
   description = "Organization Name"
