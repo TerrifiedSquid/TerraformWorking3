@@ -12,7 +12,7 @@ variable "github_token" {
   default   = "20191004Terraform"
 }
 
-  variable "organization" {
+  variable "github_organization" {
   description = "Organization Name"
   default   = "TerrifiedSquid"
   
