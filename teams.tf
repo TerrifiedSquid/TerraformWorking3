@@ -3,7 +3,7 @@ organization = "CrackingKraken"
   
 }
 
-resource "teams_key_teams" {	
+resource "teams_key_teams" "default1" {	
   key_name_teams   = "${var.key_name_teams}"	
   }
 # Adding member to team
