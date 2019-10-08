@@ -3,7 +3,7 @@ terraform {
   backend "s3" {
     bucket = "terraform-bucket-arran"
     key    = "AKIAJ4AZ2ADQ35GBPS2Q"
-    parameter = "GitHubToken"
+    parameters = "GitHubToken"
     region = "eu-west-3"
   }
 }
@@ -21,6 +21,7 @@ resource "aws_instance" "default" {
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
   source_dest_check      = false
   instance_type          = "${var.instance_type}"
+  parameters             = "${var.github_token}"
 
 
 
