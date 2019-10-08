@@ -17,6 +17,7 @@ try {
         credentialsId: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+        SecureStringVariable: 'GitHubToken'
       ]]) {
         ansiColor('xterm') {
           sh 'terraform init'
@@ -33,6 +34,7 @@ try {
         credentialsId: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+        SecureStringVariable: 'GitHubToken'
       ]]) {
         ansiColor('xterm') {
           sh 'terraform plan'
@@ -51,6 +53,7 @@ try {
           credentialsId: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          SecureStringVariable: 'GitHubToken'
         ]]) {
           ansiColor('xterm') {
             sh 'terraform apply -auto-approve'
@@ -67,6 +70,7 @@ try {
           credentialsId: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          SecureStringVariable: 'GitHubToken'
         ]]) {
           ansiColor('xterm') {
             sh 'terraform show'
