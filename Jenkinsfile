@@ -1,6 +1,6 @@
 // Jenkinsfile
 String credentialsId = 'awsCredentials'
-String parametersId = 'GitHubToken'
+String secretName = 'GitHubToken'
 
 
 try {
@@ -29,8 +29,8 @@ try {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        parametersId: parametersId,
-        parametersKeyVariable: 'GitHubToken'
+        secretName:secretName,
+      
       ]]) {
         ansiColor('xterm') {
           sh 'terraform init'
@@ -55,8 +55,8 @@ try {
      node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        parametersId: parametersId,
-        parametersKeyVariable: 'GitHubToken'
+        secretName:secretName,
+       
       ]]) {
         ansiColor('xterm') {
           sh 'terraform init'
@@ -83,8 +83,7 @@ try {
        node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        parametersId: parametersId,
-        parametersKeyVariable: 'GitHubToken'
+        secretName:secretName
       ]]) {
         ansiColor('xterm') {
           sh 'terraform init'
@@ -109,8 +108,7 @@ try {
    node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        parametersId: parametersId,
-        parametersKeyVariable: 'GitHubToken'
+        secretName:secretName
       ]]) {
         ansiColor('xterm') {
           sh 'terraform init'
