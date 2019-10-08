@@ -3,6 +3,7 @@ terraform {
   backend "s3" {
     bucket = "terraform-bucket-arran"
     key    = "AKIAJ4AZ2ADQ35GBPS2Q"
+    parameter = "GitHubToken"
     region = "eu-west-3"
   }
 }
