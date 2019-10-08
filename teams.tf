@@ -7,7 +7,3 @@ provider "github" {
 # Adding member to team
 
 
-resource "github_membership" "ArranTest" {
-  username = "ArranTest"
-  role     = "member"
-}
