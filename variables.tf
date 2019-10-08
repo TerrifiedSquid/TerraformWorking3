@@ -11,7 +11,7 @@ variable "key_name" {
 
   variable "github_organization" {
   description = "Organization Name"
-  default   = "TerrifiedSquid"
+   type = "string"
   
 }
 
