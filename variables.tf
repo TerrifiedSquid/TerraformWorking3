@@ -11,14 +11,13 @@ variable "key_name" {
 
   variable "github_organization" {
   description = "Organization Name"
-   type = "string"
-  
+  default     = "TerrifiedSquid"
 }
 
 # The following variable is meant to point back to  
 variable "github_token" {
   description = "Token for Access"
-  default   = "JenkinsKey20191007"
+   type = "string"
 }
 
 variable "instance_type" {
