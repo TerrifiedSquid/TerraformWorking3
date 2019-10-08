@@ -25,6 +25,7 @@ try {
         }
       }
     }
+  
       // Run terraform init2
     node {
       withCredentials([[
@@ -35,8 +36,9 @@ try {
         ansiColor('xterm') {
           sh 'terraform init'
         }
+      }
+    }
   }
-
   // Run terraform plan
   stage('plan') {
     node {
@@ -51,6 +53,7 @@ try {
         }
       }
     }
+  
  // Run terraform plan 2
      node {
       withCredentials([[
@@ -59,8 +62,10 @@ try {
        
       ]]) {
         ansiColor('xterm') {
-          sh 'terraform init'
-        }
+          sh 'terraform plan'
+         }
+      }
+    }
   }
 
   if (env.BRANCH_NAME == 'master') {
@@ -79,6 +84,7 @@ try {
           }
         }
       }
+    
     // Run terraform apply 2
        node {
       withCredentials([[
@@ -86,9 +92,11 @@ try {
         secretName:secretName
       ]]) {
         ansiColor('xterm') {
-          sh 'terraform init'
+          sh 'terraform apply -auto-approve'
         }
+      }
     }
+  }
 
     // Run terraform show
     stage('show') {
@@ -111,10 +119,12 @@ try {
         secretName:secretName
       ]]) {
         ansiColor('xterm') {
-          sh 'terraform init'
+          sh 'terraform show'
         }
+      }
     }
   }
+}
   currentBuild.result = 'SUCCESS'
 }
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
