@@ -17,7 +17,7 @@ variable "key_name" {
 # The following variable is meant to point back to  
 variable "github_token" {
   description = "Token for Access"
-   type = "string"
+   default     = "GithubSecretNew1"
 }
 
 variable "instance_type" {
