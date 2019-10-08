@@ -1,5 +1,7 @@
 // Jenkinsfile
 String credentialsId = 'awsCredentials'
+String parametersId = 'GitHubToken'
+
 
 try {
   stage('checkout') {
@@ -16,14 +18,23 @@ try {
         $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
-        parametersKeyVariable: 'GitHubToken'
+        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'     
       ]]) {
         ansiColor('xterm') {
           sh 'terraform init'
         }
       }
     }
+      // Run terraform init2
+    node {
+      withCredentials([[
+        $class: 'AmazonWebServicesCredentialsBinding',
+        parametersId: parametersId,
+        parametersKeyVariable: 'GitHubToken'
+      ]]) {
+        ansiColor('xterm') {
+          sh 'terraform init'
+        }
   }
 
   // Run terraform plan
@@ -33,14 +44,23 @@ try {
         $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
-        parametersKeyVariable: 'GitHubToken'
+        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
           sh 'terraform plan'
         }
       }
     }
+ // Run terraform plan 2
+     node {
+      withCredentials([[
+        $class: 'AmazonWebServicesCredentialsBinding',
+        parametersId: parametersId,
+        parametersKeyVariable: 'GitHubToken'
+      ]]) {
+        ansiColor('xterm') {
+          sh 'terraform init'
+        }
   }
 
   if (env.BRANCH_NAME == 'master') {
@@ -52,14 +72,23 @@ try {
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
-        parametersKeyVariable: 'GitHubToken'
+        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
             sh 'terraform apply -auto-approve'
           }
         }
       }
+    // Run terraform apply 2
+       node {
+      withCredentials([[
+        $class: 'AmazonWebServicesCredentialsBinding',
+        parametersId: parametersId,
+        parametersKeyVariable: 'GitHubToken'
+      ]]) {
+        ansiColor('xterm') {
+          sh 'terraform init'
+        }
     }
 
     // Run terraform show
@@ -69,14 +98,23 @@ try {
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
-        parametersKeyVariable: 'GitHubToken'
+        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
             sh 'terraform show'
           }
         }
       }
+   // Run terraform show 2  
+   node {
+      withCredentials([[
+        $class: 'AmazonWebServicesCredentialsBinding',
+        parametersId: parametersId,
+        parametersKeyVariable: 'GitHubToken'
+      ]]) {
+        ansiColor('xterm') {
+          sh 'terraform init'
+        }
     }
   }
   currentBuild.result = 'SUCCESS'
