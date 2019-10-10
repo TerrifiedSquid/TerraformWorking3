@@ -1,6 +1,6 @@
 // Jenkinsfile
 
-String credentialsId = 'awsCredentials'
+// String credentialsId = 'awsCredentials'
 
 try {
   stage('checkout') {
@@ -18,7 +18,7 @@ try {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: credentialsId,
+        awsCredentials: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
@@ -29,10 +29,10 @@ try {
     }
     // Token addition
     node {
-  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'TOKEN')]) {
+  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'github_token')]) {
     sh '''
       set +x
-      curl -H "Token: $TOKEN" https://api.github.com
+      curl -H "Token: $github_token" https://api.github.com
     '''
   }
 }
@@ -44,7 +44,7 @@ try {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: credentialsId,
+        awsCredentials: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
@@ -54,12 +54,12 @@ try {
       }
     }
     
-        // Token addition
+    // Token addition
     node {
-  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'TOKEN')]) {
+  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'github_token')]) {
     sh '''
       set +x
-      curl -H "Token: $TOKEN" https://api.github.com
+      curl -H "Token: $github_token" https://api.github.com
     '''
   }
 }
@@ -72,7 +72,7 @@ try {
       node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: credentialsId,
+          awsCredentials: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
@@ -81,12 +81,12 @@ try {
           }
         }
       }
-          // Token addition
+    // Token addition
     node {
-  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'TOKEN')]) {
+  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'github_token')]) {
     sh '''
       set +x
-      curl -H "Token: $TOKEN" https://api.github.com
+      curl -H "Token: $github_token" https://api.github.com
     '''
   }
 }
@@ -97,7 +97,7 @@ try {
       node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: credentialsId,
+          awsCredentials: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
@@ -107,12 +107,12 @@ try {
         }
       }
     }
-        // Token addition
+    // Token addition
     node {
-  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'TOKEN')]) {
+  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'github_token')]) {
     sh '''
       set +x
-      curl -H "Token: $TOKEN" https://api.github.com
+      curl -H "Token: $github_token" https://api.github.com
     '''
   }
 }
