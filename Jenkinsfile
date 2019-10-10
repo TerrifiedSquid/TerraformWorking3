@@ -75,7 +75,7 @@ try {
   if (env.BRANCH_NAME == 'master') {
 
     
-    stage('apply 2') {
+    stage('apply') {
     // Token addition
     node {
   withCredentials([string(
@@ -90,7 +90,7 @@ try {
     }
     
     // Run terraform apply
-    stage('apply') {
+    stage('apply 2') {
       node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
