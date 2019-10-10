@@ -1,10 +1,11 @@
 // Jenkinsfile
 
-String credentialsId = 'awsCredentials'
+
 
 try {
   stage('checkout') {
     node {
+      String credentialsId = 'awsCredentials'
       cleanWs()
       checkout scm
     }
@@ -29,7 +30,9 @@ try {
     }
     // Token addition
     node {
-  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'github_token')]) {
+  withCredentials([string(
+    credentialsId: 'GithubSecretNew1', 
+    variable: 'github_token')]) {
     sh '''
       set +x
       curl -H "Token: $github_token" https://api.github.com
@@ -56,7 +59,9 @@ try {
     
     // Token addition
     node {
-  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'github_token')]) {
+  withCredentials([string(
+    credentialsId: 'GithubSecretNew1', 
+    variable: 'github_token')]) {
     sh '''
       set +x
       curl -H "Token: $github_token" https://api.github.com
@@ -83,7 +88,9 @@ try {
       }
     // Token addition
     node {
-  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'github_token')]) {
+  withCredentials([string(
+    credentialsId: 'GithubSecretNew1', 
+    variable: 'github_token')]) {
     sh '''
       set +x
       curl -H "Token: $github_token" https://api.github.com
@@ -109,7 +116,9 @@ try {
     }
     // Token addition
     node {
-  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'github_token')]) {
+  withCredentials([string(
+    credentialsId: 'GithubSecretNew1', 
+    variable: 'github_token')]) {
     sh '''
       set +x
       curl -H "Token: $github_token" https://api.github.com
