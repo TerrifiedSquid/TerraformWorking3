@@ -28,7 +28,7 @@ try {
   
   stage('init 2') {
     // Token addition
-    node('second-node') {
+    node {
   withCredentials([string(
     credentialsId: 'GithubSecretNew1', 
     variable: 'TOKEN')]) {
@@ -44,7 +44,7 @@ try {
   // Run terraform plan
   
   stage('plan') {
-    node('first-node') {
+    node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: 'awsCredentials',
@@ -76,7 +76,7 @@ try {
 
     // Run terraform apply
     stage('apply') {
-      node('first-node') {
+      node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: 'awsCredentials',
@@ -92,7 +92,7 @@ try {
     
     stage('apply') {
     // Token addition
-    node('second-node') {
+    node {
   withCredentials([string(
     credentialsId: 'GithubSecretNew1', 
     variable: 'TOKEN')]) {
@@ -107,7 +107,7 @@ try {
 
     // Run terraform show
     stage('show') {
-      node('first-node') {
+      node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: 'awsCredentials',
@@ -123,7 +123,7 @@ try {
     
     stage('show') {
     // Token addition
-    node('second-node') {
+    node {
   withCredentials([string(
     credentialsId: 'GithubSecretNew1', 
     variable: 'TOKEN')]) {
