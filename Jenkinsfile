@@ -33,13 +33,13 @@ try {
     '''
   }
 }
-
+    {
         ansiColor('xterm') {
           sh 'terraform init'
         }
       }
   }
-
+}
   // Run terraform plan
   stage('plan') {
     node {
@@ -62,13 +62,13 @@ try {
     '''
   }
 }
-  
+    {
         ansiColor('xterm') {
           sh 'terraform plan'
         }
       }
 }
-
+}
   if (env.BRANCH_NAME == 'master') {
 
     // Run terraform apply
@@ -91,12 +91,12 @@ try {
       curl -H "Token: $TOKEN" https://api.github.com
     '''
   }
-}
+    } {
           ansiColor('xterm') {
             sh 'terraform apply -auto-approve'
           }
         }
-    
+    }
 
     // Run terraform show
     stage('show') {
@@ -120,12 +120,12 @@ try {
     '''
   }
 }
-      
+      {
           ansiColor('xterm') {
             sh 'terraform show'
           }
         }
-  
+    }
   currentBuild.result = 'SUCCESS'
 }
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
