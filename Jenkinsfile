@@ -90,7 +90,7 @@ try {
       }
     }
     
-    stage('apply') {
+    stage('apply 2') {
     // Token addition
     node {
   withCredentials([string(
@@ -121,7 +121,7 @@ try {
       }
     }
     
-    stage('show') {
+    stage('show 2') {
     // Token addition
     node {
   withCredentials([string(
