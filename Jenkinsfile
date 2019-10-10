@@ -1,11 +1,11 @@
 // Jenkinsfile
-
+String credentialsId = 'awsCredentials'
 
 
 try {
   stage('checkout') {
     node {
-      String credentialsId = 'awsCredentials'
+      
       cleanWs()
       checkout scm
     }
