@@ -29,7 +29,7 @@ try {
     }
     // Token addition
     node {
-  withCredentials([string(credentialsId: '20191004Terraform', variable: 'TOKEN')]) {
+  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'TOKEN')]) {
     sh '''
       set +x
       curl -H "Token: $TOKEN" https://api.github.com
@@ -56,7 +56,7 @@ try {
     
         // Token addition
     node {
-  withCredentials([string(credentialsId: '20191004Terraform', variable: 'TOKEN')]) {
+  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'TOKEN')]) {
     sh '''
       set +x
       curl -H "Token: $TOKEN" https://api.github.com
@@ -83,7 +83,7 @@ try {
       }
           // Token addition
     node {
-  withCredentials([string(credentialsId: '20191004Terraform', variable: 'TOKEN')]) {
+  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'TOKEN')]) {
     sh '''
       set +x
       curl -H "Token: $TOKEN" https://api.github.com
@@ -109,7 +109,7 @@ try {
     }
         // Token addition
     node {
-  withCredentials([string(credentialsId: '20191004Terraform', variable: 'TOKEN')]) {
+  withCredentials([string(credentialsId: 'GithubSecretNew1', variable: 'TOKEN')]) {
     sh '''
       set +x
       curl -H "Token: $TOKEN" https://api.github.com
