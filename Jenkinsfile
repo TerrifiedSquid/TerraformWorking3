@@ -12,7 +12,7 @@ try {
 
   // Run terraform init
   stage('init') {
-    node('first-node') {
+    node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: 'awsCredentials',
@@ -24,6 +24,9 @@ try {
         }
       }
     }
+  }
+  
+  stage('init 2') {
     // Token addition
     node('second-node') {
   withCredentials([string(
@@ -35,9 +38,11 @@ try {
     '''
    }
   }
- }
+  }
+ 
 
   // Run terraform plan
+  
   stage('plan') {
     node('first-node') {
       withCredentials([[
@@ -51,9 +56,11 @@ try {
         }
       }
     }
-    
+  }
+  
     // Token addition
-    node('second-node') {
+    stage('plan 2') {
+    node {
   withCredentials([string(
     credentialsId: 'GithubSecretNew1', 
     variable: 'TOKEN')]) {
@@ -81,6 +88,9 @@ try {
           }
         }
       }
+    }
+    
+    stage('apply') {
     // Token addition
     node('second-node') {
   withCredentials([string(
@@ -93,6 +103,7 @@ try {
   }
 }
     }
+  }
 
     // Run terraform show
     stage('show') {
@@ -109,6 +120,8 @@ try {
         }
       }
     }
+    
+    stage('show') {
     // Token addition
     node('second-node') {
   withCredentials([string(
@@ -121,6 +134,7 @@ try {
   }
 }
   }
+    
   currentBuild.result = 'SUCCESS'
 }
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
