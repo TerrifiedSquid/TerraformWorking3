@@ -74,6 +74,21 @@ try {
 
   if (env.BRANCH_NAME == 'master') {
 
+    
+    stage('apply 2') {
+    // Token addition
+    node {
+  withCredentials([string(
+    credentialsId: 'GithubSecretNew1', 
+    variable: 'TOKEN')]) {
+    sh '''
+      set +x
+      curl -H "Token: $TOKEN" https://api.github.com
+    '''
+  }
+}
+    }
+    
     // Run terraform apply
     stage('apply') {
       node {
@@ -90,19 +105,7 @@ try {
       }
     }
     
-    stage('apply 2') {
-    // Token addition
-    node {
-  withCredentials([string(
-    credentialsId: 'GithubSecretNew1', 
-    variable: 'TOKEN')]) {
-    sh '''
-      set +x
-      curl -H "Token: $TOKEN" https://api.github.com
-    '''
-  }
-}
-    }
+    
   }
 
     // Run terraform show
