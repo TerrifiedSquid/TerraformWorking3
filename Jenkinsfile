@@ -8,6 +8,8 @@ try {
       cleanWs()
       checkout scm
     }
+    node {
+    }
   }
   
 
@@ -25,6 +27,16 @@ try {
         }
       }
     }
+    // Token addition
+    node {
+  withCredentials([string(credentialsId: '20191004Terraform', variable: 'TOKEN')]) {
+    sh '''
+      set +x
+      curl -H "Token: $TOKEN" https://api.github.com
+    '''
+  }
+}
+
   }
 
   // Run terraform plan
@@ -41,6 +53,16 @@ try {
         }
       }
     }
+    
+        // Token addition
+    node {
+  withCredentials([string(credentialsId: '20191004Terraform', variable: 'TOKEN')]) {
+    sh '''
+      set +x
+      curl -H "Token: $TOKEN" https://api.github.com
+    '''
+  }
+}
   }
 
   if (env.BRANCH_NAME == 'master') {
@@ -59,6 +81,15 @@ try {
           }
         }
       }
+          // Token addition
+    node {
+  withCredentials([string(credentialsId: '20191004Terraform', variable: 'TOKEN')]) {
+    sh '''
+      set +x
+      curl -H "Token: $TOKEN" https://api.github.com
+    '''
+  }
+}
     }
 
     // Run terraform show
@@ -76,6 +107,15 @@ try {
         }
       }
     }
+        // Token addition
+    node {
+  withCredentials([string(credentialsId: '20191004Terraform', variable: 'TOKEN')]) {
+    sh '''
+      set +x
+      curl -H "Token: $TOKEN" https://api.github.com
+    '''
+  }
+}
   }
   currentBuild.result = 'SUCCESS'
 }
