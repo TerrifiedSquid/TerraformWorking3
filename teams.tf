@@ -1,6 +1,6 @@
  provider "github" {
  organization = "${var.github_organization}"
- GITHUB_TOKEN        = "${var.TOKEN}"  
+ github_token        = "${var.TOKEN}"  
   } 
 
 resource "github_membership" "ArranTest" {
