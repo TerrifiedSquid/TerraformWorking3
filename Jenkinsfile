@@ -30,10 +30,10 @@ try {
     node {
   withCredentials([string(
     credentialsId: 'GithubSecretNew1', 
-    variable: 'github_token')]) {
+    variable: 'TOKEN')]) {
     sh '''
       set +x
-      curl -H "Token: $github_token" https://api.github.com
+      curl -H "Token: $TOKEN" https://api.github.com
     '''
   }
 }
@@ -59,10 +59,10 @@ try {
     node {
   withCredentials([string(
     credentialsId: 'GithubSecretNew1', 
-    variable: 'github_token')]) {
+    variable: 'TOKEN')]) {
     sh '''
       set +x
-      curl -H "Token: $github_token" https://api.github.com
+      curl -H "Token: $TOKEN" https://api.github.com
     '''
   }
 }
@@ -88,10 +88,10 @@ try {
     node {
   withCredentials([string(
     credentialsId: 'GithubSecretNew1', 
-    variable: 'github_token')]) {
+    variable: 'TOKEN')]) {
     sh '''
       set +x
-      curl -H "Token: $github_token" https://api.github.com
+      curl -H "Token: $TOKEN" https://api.github.com
     '''
   }
 }
@@ -116,10 +116,10 @@ try {
     node {
   withCredentials([string(
     credentialsId: 'GithubSecretNew1', 
-    variable: 'github_token')]) {
+    variable: 'TOKEN')]) {
     sh '''
       set +x
-      curl -H "Token: $github_token" https://api.github.com
+      curl -H "Token: $TOKEN" https://api.github.com
     '''
   }
 }
