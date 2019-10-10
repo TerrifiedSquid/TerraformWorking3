@@ -3,8 +3,8 @@
  token        = "${var.TOKEN}"  
   } 
 
-resource "github_membership" "ArranTest" {
-username = "ArranTest"
+resource "github_membership" "$ArranTest" {
+username = "$ArranTest"
 role = "member" 
 }
 
