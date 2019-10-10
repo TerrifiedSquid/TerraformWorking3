@@ -1,7 +1,8 @@
 // Jenkinsfile
-// String credentialsId = 'awsCredentials'
+// 
 
-
+pipeline { 
+  String credentialsId = 'awsCredentials'
 try {
   stage('checkout') {
     node {
@@ -139,4 +140,5 @@ finally {
   if (currentBuild.result == 'SUCCESS') {
     currentBuild.result = 'SUCCESS'
   }
+}
 }
