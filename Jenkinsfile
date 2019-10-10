@@ -10,7 +10,7 @@ try {
     node {
     }
   }
-  
+}
 
   // Run terraform init
   stage('init') {
