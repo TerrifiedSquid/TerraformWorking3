@@ -1,6 +1,6 @@
 // Jenkinsfile
 
-// String credentialsId = 'awsCredentials'
+String credentialsId = 'awsCredentials'
 
 try {
   stage('checkout') {
@@ -18,7 +18,7 @@ try {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        awsCredentials: credentialsId,
+        credentialsId: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
@@ -44,7 +44,7 @@ try {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        awsCredentials: credentialsId,
+        credentialsId: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
@@ -72,7 +72,7 @@ try {
       node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          awsCredentials: credentialsId,
+          credentialsId: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
@@ -97,7 +97,7 @@ try {
       node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          awsCredentials: credentialsId,
+          credentialsId: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
