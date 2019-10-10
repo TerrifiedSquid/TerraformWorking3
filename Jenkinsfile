@@ -1,5 +1,5 @@
 // Jenkinsfile
-String credentialsId = 'awsCredentials'
+// String credentialsId = 'awsCredentials'
 
 
 try {
@@ -19,7 +19,7 @@ try {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: credentialsId,
+        credentialsId: awsCredentials,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
@@ -31,7 +31,7 @@ try {
     // Token addition
     node {
   withCredentials([string(
-    credentialsId: 'GithubSecretNew1', 
+    credentialsId: GithubSecretNew1, 
     variable: 'github_token')]) {
     sh '''
       set +x
@@ -47,7 +47,7 @@ try {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: credentialsId,
+        credentialsId: awsCredentials,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
@@ -60,7 +60,7 @@ try {
     // Token addition
     node {
   withCredentials([string(
-    credentialsId: 'GithubSecretNew1', 
+    credentialsId: GithubSecretNew1, 
     variable: 'github_token')]) {
     sh '''
       set +x
@@ -77,7 +77,7 @@ try {
       node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: credentialsId,
+          credentialsId: awsCredentials,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
@@ -89,7 +89,7 @@ try {
     // Token addition
     node {
   withCredentials([string(
-    credentialsId: 'GithubSecretNew1', 
+    credentialsId: GithubSecretNew1, 
     variable: 'github_token')]) {
     sh '''
       set +x
@@ -104,7 +104,7 @@ try {
       node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: credentialsId,
+          credentialsId: awsCredentials,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
@@ -117,7 +117,7 @@ try {
     // Token addition
     node {
   withCredentials([string(
-    credentialsId: 'GithubSecretNew1', 
+    credentialsId: GithubSecretNew1, 
     variable: 'github_token')]) {
     sh '''
       set +x
