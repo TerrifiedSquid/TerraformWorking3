@@ -15,7 +15,7 @@ variable "key_name" {
 }
 
 # The following variable is meant to point back to  
-variable "github_token" {
+variable "TOKEN" {
   description = "Token for Access"
    default     = "TOKEN"
 }
