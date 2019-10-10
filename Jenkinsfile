@@ -20,11 +20,7 @@ try {
         credentialsId: 'awsCredentials',
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-      ]]) {
-        ansiColor('xterm') {
-          sh 'terraform init'
-        }
-      }
+      ]]) 
     }
     // Token addition
     node {
@@ -38,6 +34,10 @@ try {
   }
 }
 
+        ansiColor('xterm') {
+          sh 'terraform init'
+        }
+      }
   }
 
   // Run terraform plan
@@ -48,11 +48,7 @@ try {
         credentialsId: 'awsCredentials',
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-      ]]) {
-        ansiColor('xterm') {
-          sh 'terraform plan'
-        }
-      }
+      ]]) 
     }
     
     // Token addition
@@ -66,7 +62,12 @@ try {
     '''
   }
 }
-  }
+  
+        ansiColor('xterm') {
+          sh 'terraform plan'
+        }
+      }
+}
 
   if (env.BRANCH_NAME == 'master') {
 
@@ -78,11 +79,7 @@ try {
           credentialsId: 'awsCredentials',
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {
-          ansiColor('xterm') {
-            sh 'terraform apply -auto-approve'
-          }
-        }
+        ]]) 
       }
     // Token addition
     node {
@@ -95,7 +92,11 @@ try {
     '''
   }
 }
-    }
+          ansiColor('xterm') {
+            sh 'terraform apply -auto-approve'
+          }
+        }
+    
 
     // Run terraform show
     stage('show') {
@@ -105,13 +106,9 @@ try {
           credentialsId: 'awsCredentials',
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {
-          ansiColor('xterm') {
-            sh 'terraform show'
-          }
-        }
+        ]]) 
       }
-    }
+    
     // Token addition
     node {
   withCredentials([string(
@@ -123,7 +120,12 @@ try {
     '''
   }
 }
-  }
+      
+          ansiColor('xterm') {
+            sh 'terraform show'
+          }
+        }
+  
   currentBuild.result = 'SUCCESS'
 }
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
