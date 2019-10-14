@@ -62,8 +62,8 @@ try {
          [$class: 'VaultTokenCredentialBinding', 
          addrVariable: 'VAULT_ADDR', 
          credentialsId: 'vault-github-access-token', 
-         tokenVariable: 'VAULT_TOKEN', 
-         vaultAddr: 'https://127.0.0.1:8200/']])         
+         tokenVariable: 'token', 
+         vaultAddr: 'https://localhost:8200/']])         
          
       {
         ansiColor('xterm') {
