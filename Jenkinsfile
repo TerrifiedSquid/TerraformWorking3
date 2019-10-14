@@ -46,7 +46,11 @@ node {
         sh 'echo $testing_again'
         sh 'echo $another_test'
     }
-}
+}{
+        ansiColor('xterm') {
+          sh 'terraform init'
+        }
+      }
 
     
     
