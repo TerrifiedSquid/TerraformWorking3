@@ -66,7 +66,9 @@ try {
     //     vaultAddr: 'https://localhost:8200/']])         
          
      
-   [ withCredentials([[$class: 'VaultTokenCredentialBinding', credentialsId: 'vault-github-access-token', vaultAddr: 'https://localhost:8200']]) {
+   [$class: 'VaultTokenCredentialBinding', 
+    credentialsId: 'vault-github-access-token', 
+    vaultAddr: 'https://localhost:8200']]) {
         // values will be masked
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
