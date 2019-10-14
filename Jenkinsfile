@@ -63,7 +63,7 @@ try {
          addrVariable: 'VAULT_ADDR', 
          credentialsId: 'vault-github-access-token', 
          tokenVariable: 'VAULT_TOKEN', 
-         vaultAddr: 'https://localhost:8200']])         
+         vaultAddr: 'http://localhost:8200']])         
          
       {
         ansiColor('xterm') {
