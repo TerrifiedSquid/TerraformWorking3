@@ -26,19 +26,6 @@ try {
     }
   }
   
-  stage('init 2') {
-    // Token addition
-    node {
-  withCredentials([string(
-    credentialsId: 'GithubSecretNew1', 
-    variable: 'TOKEN')]) {
-    sh '''
-      set +x
-      curl -H "Token: $TOKEN" https://api.github.com
-    '''
-   }
-  }
-  }
  
 
   // Run terraform plan
@@ -58,48 +45,31 @@ try {
     }
   }
   
-    // Token addition
-    stage('plan 2') {
-    node {
-  withCredentials([string(
-    credentialsId: 'GithubSecretNew1', 
-    variable: 'TOKEN')]) {
-    sh '''
-      set +x
-      curl -H "Token: $TOKEN" https://api.github.com
-    '''
-  }
-}
-  }
+  
 
   if (env.BRANCH_NAME == 'master') {
-
-    
-    stage('apply') {
-    // Token addition
-    node {
-  withCredentials([string(
-    credentialsId: 'GithubSecretNew1', 
-    variable: 'TOKEN')]) {
-    sh '''
-      set +x
-      curl -H "Token: $TOKEN" https://api.github.com
-    '''
-  }
-}
-    }
     
     // Run terraform apply
-    stage('apply 2') {
+    stage('apply') {
       node {
+       // withCredentials([[
+      //    $class: 'AmazonWebServicesCredentialsBinding',
+        //  credentialsId: 'awsCredentials',
+       //   accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+      //    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          
+        // ]]) }
         withCredentials([[
-          $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: 'awsCredentials',
-          accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-          secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {
-          ansiColor('xterm') {
-            sh 'terraform apply -auto-approve'
+          $class: 'VaultTokenCredentialBinding', 
+                          addrVariable: 'VAULT_ADDR', 
+                          credentialsId: 'vault-github-access-token', 
+                          tokenVariable: 'VAULT_TOKEN', vaultAddr: 'https://localhost:8200']]) 
+        {
+        ansiColor('xterm') {
+        sh 'terraform apply -auto-approve'
+    // some block
+}
+        
           }
         }
       }
