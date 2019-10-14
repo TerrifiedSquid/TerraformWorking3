@@ -52,14 +52,14 @@ try {
     // Run terraform apply
     stage('apply') {
       node {
-       // withCredentials([[
-      //    $class: 'AmazonWebServicesCredentialsBinding',
-        //  credentialsId: 'awsCredentials',
-       //   accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      //    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-          
-        // ]]) }
-        withCredentials([[
+       withCredentials([[
+     $class: 'AmazonWebServicesCredentialsBinding',
+        credentialsId: 'awsCredentials',
+      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+        ]]) 
+       
+         withCredentials([[
           $class: 'VaultTokenCredentialBinding', 
                           addrVariable: 'VAULT_ADDR', 
                           credentialsId: 'vault-github-access-token', 
@@ -67,15 +67,12 @@ try {
         {
         ansiColor('xterm') {
         sh 'terraform apply -auto-approve'
-    // some block
-}
+
         
           }
         }
       }
-    }
-    
-    
+    } 
   }
 
     // Run terraform show
