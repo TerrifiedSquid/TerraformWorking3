@@ -61,7 +61,7 @@ try {
          
          [$class: 'VaultTokenCredentialBinding', 
          addrVariable: 'VAULT_ADDR', 
-         credentialsId: '', 
+         credentialsId: 'vault-github-access-token', 
          tokenVariable: 'VAULT_TOKEN', 
          vaultAddr: 'https://localhost:8200']])         
          
