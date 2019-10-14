@@ -63,7 +63,7 @@ try {
          addrVariable: 'VAULT_ADDR', 
          credentialsId: 'vault-github-access-token', 
          tokenVariable: 'VAULT_TOKEN', 
-         vaultAddr: 'https://localhost:8200']])         
+         vaultAddr: 'http://localhost:8200']])         
          
       {
         ansiColor('xterm') {
@@ -88,18 +88,9 @@ try {
           }
         }
       }
-    }
-    
-    stage('show 2') {
-    // Token addition
-    node {
-    withCredentials([[$class: 'VaultTokenCredentialBinding', credentialsId: 'vaulttoken', vaultAddr: 'https://localhost:8200']]) {
-        // values will be masked
-        sh 'echo TOKEN=$VAULT_TOKEN'
-        sh 'echo ADDR=$VAULT_ADDR'
-    }
-}
+    } 
   }
+  
     
   currentBuild.result = 'SUCCESS'
 }
