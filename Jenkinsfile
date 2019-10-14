@@ -57,7 +57,7 @@ try {
      $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: 'awsCredentials',
       accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',]
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
          
          [$class: 'VaultTokenCredentialBinding', 
          addrVariable: 'VAULT_ADDR', 
@@ -65,7 +65,7 @@ try {
          tokenVariable: 'VAULT_TOKEN', 
          vaultAddr: 'https://localhost:8200']])         
          
-        ]]) {
+      {
         ansiColor('xterm') {
         sh 'terraform apply -auto-approve'
           }
