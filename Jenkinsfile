@@ -58,7 +58,7 @@ try {
       accessKeyVariable: 'AWS_ACCESS_KEY_ID',
       secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) 
-       
+       node {
          withCredentials([[
           $class: 'VaultTokenCredentialBinding', 
                           addrVariable: 'VAULT_ADDR', 
@@ -68,7 +68,7 @@ try {
         ansiColor('xterm') {
         sh 'terraform apply -auto-approve'
 
-        
+        }
           }
         }
       }
