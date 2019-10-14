@@ -127,14 +127,11 @@ try {
     stage('show 2') {
     // Token addition
     node {
-  withCredentials([string(
-    credentialsId: 'GithubSecretNew1', 
-    variable: 'TOKEN')]) {
-    sh '''
-      set +x
-      curl -H "Token: $TOKEN" https://api.github.com
-    '''
-  }
+    withCredentials([[$class: 'VaultTokenCredentialBinding', credentialsId: 'vaulttoken', vaultAddr: 'https://localhost:8200']]) {
+        // values will be masked
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
+    }
 }
   }
     
