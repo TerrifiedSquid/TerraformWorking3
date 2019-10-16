@@ -57,17 +57,20 @@ try {
      $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: 'awsCredentials',
       accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'], 
+                        
+     [$class: 'VaultTokenCredentialBinding', 
+         addrVariable: 'VAULT_ADDR', 
+         credentialsId: 'vault-github-access-token', 
+         tokenVariable: 'token', 
+         vaultAddr: 'https://localhost:8200/']])    
+        
                {
         ansiColor('xterm') {
         sh 'terraform apply -auto-approve'
           }
         }
-     //    [$class: 'VaultTokenCredentialBinding', 
-    //     addrVariable: 'VAULT_ADDR', 
-      //   credentialsId: 'vault-github-access-token', 
-      //   tokenVariable: 'token', 
-    //     vaultAddr: 'https://localhost:8200/']])         
+              
          
      
    //[$class: 'VaultTokenCredentialBinding', 
