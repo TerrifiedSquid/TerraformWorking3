@@ -58,7 +58,11 @@ try {
         credentialsId: 'awsCredentials',
       accessKeyVariable: 'AWS_ACCESS_KEY_ID',
       secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
-               
+               {
+        ansiColor('xterm') {
+        sh 'terraform apply -auto-approve'
+          }
+        }
      //    [$class: 'VaultTokenCredentialBinding', 
     //     addrVariable: 'VAULT_ADDR', 
       //   credentialsId: 'vault-github-access-token', 
