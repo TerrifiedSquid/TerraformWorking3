@@ -84,7 +84,7 @@ try {
                         
       }
     } 
-  }
+  
 
    // Run terraform show
     stage('show') {
