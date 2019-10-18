@@ -3,10 +3,10 @@
  token        = "${var.TOKEN}"  
   } 
 
-// resource "github_membership" "ArranTest" {
-// username = "ArranTest"
-// role = "member" 
-// }
+ resource "github_membership" "ArranTest" {
+ username = "ArranTest"
+ role = "member" 
+ }
 
 
 // resource "github_team" "some_team" {
