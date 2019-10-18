@@ -102,7 +102,6 @@ stage('apply') {
    
     stage('show') {
     // Token addition
-stage('apply') {
       node {
        withCredentials([[
       
