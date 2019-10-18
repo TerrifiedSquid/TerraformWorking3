@@ -104,11 +104,11 @@ try {
         sh 'echo ADDR=$VAULT_ADDR'
          }
       //  ]]) 
-        {
-          ansiColor('xterm') {
-            sh 'terraform show'
-          }
-        }
+  //      {
+   //       ansiColor('xterm') {
+   //         sh 'terraform show'
+   //       }
+   //     }
       }
     }
     
