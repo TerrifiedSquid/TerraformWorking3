@@ -63,7 +63,7 @@ try {
          addrVariable: 'VAULT_ADDR', 
          credentialsId: 'vault-app-role', 
          tokenVariable: 'token', 
-         vaultAddr: 'https://localhost:8200/']])    
+         vaultAddr: 'http://127.0.0.1:8200/']])    
         
                {
         ansiColor('xterm') {
