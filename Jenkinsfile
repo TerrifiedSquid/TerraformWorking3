@@ -26,7 +26,20 @@ try {
     }
   }
   
-  
+   stage('init 2') {
+    // Token addition
+    node {
+    withCredentials([[$class: 'VaultTokenCredentialBinding', 
+   credentialsId: 'vault-github-access-token', 
+   vaultAddr: 'http://127.0.0.1:8200']])  
+      { ansiColor('xterm') {
+        // values will be masked
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
+   }
+  }
+ }
+}
   
  
 
@@ -48,6 +61,22 @@ try {
   }
   
   
+  stage('plan 2') {
+    // Token addition
+    node {
+    withCredentials([[$class: 'VaultTokenCredentialBinding', 
+   credentialsId: 'vault-github-access-token', 
+   vaultAddr: 'http://127.0.0.1:8200']])  
+      { ansiColor('xterm') {
+        // values will be masked
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
+   }
+  }
+ }
+}
+  
+  
 
   if (env.BRANCH_NAME == 'master') {
     
@@ -60,10 +89,6 @@ try {
         credentialsId: 'awsCredentials',
       accessKeyVariable: 'AWS_ACCESS_KEY_ID',
       secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
-                         {    ansiColor('xterm') {
-          sh 'terraform apply'
-         }
-          }
                         
   [    $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
