@@ -54,10 +54,10 @@ try {
       node {
        withCredentials([[
       
-   //  $class: 'AmazonWebServicesCredentialsBinding',
-    //    credentialsId: 'awsCredentials',
-   //   accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-   //   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'], 
+     $class: 'AmazonWebServicesCredentialsBinding',
+        credentialsId: 'awsCredentials',
+      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'], 
                         
    //  [$class: 'VaultTokenCredentialBinding', 
     //     addrVariable: 'VAULT_ADDR', 
@@ -65,8 +65,7 @@ try {
     //     tokenVariable: 'token', 
     //     vaultAddr: 'http://127.0.0.1:8200/']])    
                         
- // [
-    $class: 'VaultTokenCredentialBinding', 
+  [    $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://127.0.0.1:8200']]) 
          {
@@ -75,15 +74,13 @@ try {
         sh 'echo ADDR=$VAULT_ADDR'
          }
       
-               {
-        ansiColor('xterm') {
-        sh 'terraform apply -auto-approve'
+             //  {
+   //     ansiColor('xterm') {
+   //     sh 'terraform apply -auto-approve'
           }
-        }
+    //    }
               
-      
-     
-
+    
                         
       }
     } 
@@ -96,7 +93,16 @@ try {
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: 'awsCredentials',
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-          secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
+                         
+   [    $class: 'VaultTokenCredentialBinding', 
+   credentialsId: 'vault-github-access-token', 
+   vaultAddr: 'http://127.0.0.1:8200']]) 
+         {
+        // values will be masked
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
+         }
         ]]) {
           ansiColor('xterm') {
             sh 'terraform show'
