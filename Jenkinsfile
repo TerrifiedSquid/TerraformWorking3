@@ -59,7 +59,11 @@ try {
      $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: 'awsCredentials',
       accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],       
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
+                         {    ansiColor('xterm') {
+          sh 'terraform apply'
+         }
+          }
                         
   [    $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
@@ -68,12 +72,7 @@ try {
         // values will be masked
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
-         }
-          {    ansiColor('xterm') {
-          sh 'terraform apply'
-         }
-          }
-          
+         }        
         }
        }                   
       }
