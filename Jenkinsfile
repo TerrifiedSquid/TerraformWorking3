@@ -74,11 +74,11 @@ try {
          
       }
         
-            //   {
-     //   ansiColor('xterm') {
-     //   sh 'terraform apply -auto-approve'
-     //     }
-    //    }
+               {
+        ansiColor('xterm') {
+        sh 'terraform apply -auto-approve'
+          }
+        }
               
       
      
