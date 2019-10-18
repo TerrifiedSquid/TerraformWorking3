@@ -87,7 +87,7 @@ stage('apply') {
          {    ansiColor('xterm') {
   
         // values will be masked
-       sh 'echo TOKEN=token'
+       sh 'echo TOKEN=vault-github-access-token'
         sh 'echo ADDR=http://6a3d5efe.ngrok.io'
            sh 'terraform apply -input=false -auto-approve' 
            
