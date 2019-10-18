@@ -28,15 +28,15 @@ try {
          {    ansiColor('xterm') {
   
         // values will be masked
-        sh 'echo TOKEN=$token'
-        sh 'echo ADDR=$VAULT_ADDR'
+       sh 'echo TOKEN=token'
+        sh 'echo ADDR=http://6a3d5efe.ngrok.io'
            sh 'terraform init' 
            
          }        
         }
        }                   
       }
-  
+
  
 
   // Run terraform plan
@@ -58,8 +58,8 @@ try {
          {    ansiColor('xterm') {
   
         // values will be masked
-        sh 'echo TOKEN=$token'
-        sh 'echo ADDR=$VAULT_ADDR'
+       sh 'echo TOKEN=token'
+        sh 'echo ADDR=http://6a3d5efe.ngrok.io'
         sh 'terraform plan' 
            
          }        
@@ -87,7 +87,7 @@ stage('apply') {
          {    ansiColor('xterm') {
   
         // values will be masked
-        sh 'echo TOKEN=token'
+       sh 'echo TOKEN=token'
         sh 'echo ADDR=http://6a3d5efe.ngrok.io'
            sh 'terraform apply -input=false -auto-approve' 
            
