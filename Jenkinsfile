@@ -64,6 +64,7 @@ try {
    vaultAddr: 'http://127.0.0.1:8200']]) 
          {    ansiColor('xterm') {
         // values will be masked
+           sh 'terraform plan'
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
          }
