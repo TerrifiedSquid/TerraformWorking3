@@ -67,12 +67,13 @@ try {
                         
   [$class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://127.0.0.1:8200']]) {
-        // values will be masked
-        sh 'echo TOKEN=$VAULT_TOKEN'
-        sh 'echo ADDR=$VAULT_ADDR'
+   vaultAddr: 'http://127.0.0.1:8200']]) 
+        // {
+   //     // values will be masked
+     //   sh 'echo TOKEN=$VAULT_TOKEN'
+     //   sh 'echo ADDR=$VAULT_ADDR'
          
-      }
+   //   }
         
                {
         ansiColor('xterm') {
