@@ -103,7 +103,8 @@ try {
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
          }
-        ]]) {
+      //  ]]) 
+        {
           ansiColor('xterm') {
             sh 'terraform show'
           }
