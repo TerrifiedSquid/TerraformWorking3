@@ -11,22 +11,9 @@ try {
 
 
   // Run terraform init
-  stage('init') {
-    node {
-      withCredentials([[
-        $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: 'awsCredentials',
-        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-      ]]) {
-        ansiColor('xterm') {
-          sh 'terraform init'
-        }
-      }
-    }
-  }
+ 
   
-   stage('init 2') {
+   stage('init') {
     // Token addition
     node {
     withCredentials([[$class: 'VaultTokenCredentialBinding', 
@@ -44,24 +31,10 @@ try {
  
 
   // Run terraform plan
-  
-  stage('plan') {
-    node {
-      withCredentials([[
-        $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: 'awsCredentials',
-        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-      ]]) {
-        ansiColor('xterm') {
-          sh 'terraform plan'
-        }
-      }
-    }
-  }
+ 
   
   
-  stage('plan 2') {
+  stage('plan ') {
     // Token addition
     node {
     withCredentials([[$class: 'VaultTokenCredentialBinding', 
@@ -85,12 +58,7 @@ try {
       node {
        withCredentials([[
       
-     $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: 'awsCredentials',
-      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
-                        
-  [    $class: 'VaultTokenCredentialBinding', 
+ $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://127.0.0.1:8200']]) 
          {    ansiColor('xterm') {
@@ -105,22 +73,8 @@ try {
   
 
    // Run terraform show
+   
     stage('show') {
-      node {
-        withCredentials([[
-          $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: 'awsCredentials',
-          accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-          secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {
-          ansiColor('xterm') {
-            sh 'terraform show'
-          }
-        }
-      }
-    }
-    
-    stage('show 2') {
     // Token addition
     node {
     withCredentials([[$class: 'VaultTokenCredentialBinding', 
