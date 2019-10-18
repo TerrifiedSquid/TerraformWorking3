@@ -28,7 +28,7 @@ try {
          {    ansiColor('xterm') {
   
         // values will be masked
-        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo TOKEN=$token'
         sh 'echo ADDR=$VAULT_ADDR'
            sh 'terraform init' 
            
@@ -58,7 +58,7 @@ try {
          {    ansiColor('xterm') {
   
         // values will be masked
-        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo TOKEN=$token'
         sh 'echo ADDR=$VAULT_ADDR'
         sh 'terraform plan' 
            
@@ -87,7 +87,7 @@ stage('apply') {
          {    ansiColor('xterm') {
   
         // values will be masked
-        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo TOKEN=$token'
         sh 'echo ADDR=$VAULT_ADDR'
            sh 'terraform apply' 
            
@@ -116,7 +116,7 @@ stage('apply') {
          {    ansiColor('xterm') {
   
         // values will be masked
-        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo TOKEN=$token'
         sh 'echo ADDR=$VAULT_ADDR'
            sh 'terraform sow' 
            
