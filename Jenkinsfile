@@ -84,7 +84,7 @@ stage('apply') {
       //  values will be masked
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
-        sh 'terraform apply -target="vault-github-access-token" -auto-approve'
+        sh 'terraform apply -target=credentialsId -auto-approve'
       
     //    sh 'vault-github-access-token'
            
