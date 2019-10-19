@@ -114,10 +114,11 @@ stage('apply') {
                          vaultCredentialId: 'vault-github-access-token',
                          engineVersion: 1]
     // inside this block your credentials will be available as env variables
-    withVault([configuration: configuration, vaultSecrets: vault-github-access-token]) {
+    withVault([configuration: configuration, vaultSecrets: secrets]) {
         sh 'echo $testing'
         sh 'echo $testing_again'
         sh 'echo $another_test'
+      
     }
 }
          }
