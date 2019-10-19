@@ -78,16 +78,15 @@ stage('apply') {
                         
     [$class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://03095bcf.ngrok.io'
-       ]]) 
+   vaultAddr: 'http://03095bcf.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         values will be masked
-        
+        sh 'echo TOKEN=vault-github-access-token'
         sh 'echo ADDR=$VAULT_ADDR'
-           sh 'terraform apply -input=false -auto-approve'
-           sh 'echo TOKEN=vault-github-access-token'
-          // sh 'vault-github-access-token'
+        sh 'terraform apply -input=false -auto-approve'
+      
+    //    sh 'vault-github-access-token'
            
          }        
         }
