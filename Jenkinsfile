@@ -101,11 +101,11 @@ stage('apply') {
     // engine version can be defined on secret, job, folder or global.
     // the default is engine version 2 unless otherwise specified globally.
     def secrets = [
-        [path: 'secret/new', engineVersion: 1, secretValues: [
+        [path: 'secret/kv-v1/new', engineVersion: 1, secretValues: [
             [envVar: 'testing', vaultKey: 'vault-github-access-token'],
             [envVar: 'testing_again', vaultKey: 'vault-github-access-token']]],
         [path: 'secret/another_test', engineVersion: 2, secretValues: [
-            [vaultKey: 'another_test']]]
+            [vaultKey: 'vault-github-access-tokent']]]
     ]
 
     // optional configuration, if you do not provide this the next higher configuration
@@ -114,7 +114,7 @@ stage('apply') {
                          vaultCredentialId: 'vault-github-access-token',
                          engineVersion: 1]
     // inside this block your credentials will be available as env variables
-    withVault([configuration: configuration, vaultSecrets: sectrets]) {
+    withVault([configuration: configuration, vaultSecrets: vault-github-access-token]) {
         sh 'echo $testing'
         sh 'echo $testing_again'
         sh 'echo $another_test'
