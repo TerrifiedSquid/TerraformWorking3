@@ -55,7 +55,7 @@ try {
         // values will be masked
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
-        sh 'terraform plan' 
+        sh 'terraform plan -target=vault-github-access-token' 
            
          }        
         }
@@ -84,7 +84,7 @@ stage('apply') {
       //  values will be masked
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
-        sh 'terraform apply -auto-approve -target=vault-github-access-token'
+        sh 'terraform apply -auto-approve'
       
     //    sh 'vault-github-access-token'
            
