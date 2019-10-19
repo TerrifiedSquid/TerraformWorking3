@@ -95,7 +95,7 @@ stage('apply') {
       }
     
     //Second apply stage 
-    stage('apply') {
+    stage('apply 2') {
     node {
     // define the secrets and the env variables
     // engine version can be defined on secret, job, folder or global.
