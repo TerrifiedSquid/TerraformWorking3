@@ -101,7 +101,7 @@ stage('apply') {
     // engine version can be defined on secret, job, folder or global.
     // the default is engine version 2 unless otherwise specified globally.
     def secrets = [
-        [path: ‘secret/new', engineVersion: 1, secretValues: [
+        [path: 'secret/new', engineVersion: 1, secretValues: [
             [envVar: 'testing', vaultKey: 'vault-github-access-token'],
             [envVar: 'testing_again', vaultKey: 'vault-github-access-token’]]],
         [path: 'secret/another_test', engineVersion: 2, secretValues: [
