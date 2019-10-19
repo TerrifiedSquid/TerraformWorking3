@@ -74,19 +74,19 @@ stage('apply') {
      $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: 'awsCredentials',
       accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-       // ],
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY' ],
                         
-   // [$class: 'VaultTokenCredentialBinding', 
-//   credentialsId: 'vault-github-access-token', 
-//   vaultAddr: 'http://03095bcf.ngrok.io'
+    [$class: 'VaultTokenCredentialBinding', 
+   credentialsId: 'vault-github-access-token', 
+   vaultAddr: 'http://03095bcf.ngrok.io'
        ]]) 
          {    ansiColor('xterm') {
   
-        // values will be masked
-   //     sh 'echo TOKEN=$VAULT_TOKEN'
-   //     sh 'echo ADDR=$VAULT_ADDR'
-           sh 'terraform apply -input=false -auto-approve' 
+        values will be masked
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
+           sh 'terraform apply -input=false -auto-approve'
+           sh 'vault-github-access-token'
            
          }        
         }
