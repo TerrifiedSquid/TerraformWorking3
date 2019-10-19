@@ -26,8 +26,8 @@ try {
          {    ansiColor('xterm') {
   
         // values will be masked
-       sh 'echo TOKEN=githubtoken'
-        sh 'echo ADDR=http://03095bcf.ngrok.io'
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
            sh 'terraform init' 
            
          }        
@@ -53,8 +53,8 @@ try {
          {    ansiColor('xterm') {
   
         // values will be masked
-       sh 'echo TOKEN=githubtoken'
-        sh 'echo ADDR=http://03095bcf.ngrok.io'
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
         sh 'terraform plan' 
            
          }        
@@ -82,8 +82,8 @@ stage('apply') {
          {    ansiColor('xterm') {
   
         // values will be masked
-       sh 'echo TOKEN=githubtoken'
-        sh 'echo ADDR=http://03095bcf.ngrok.io'
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
            sh 'terraform apply -input=false -auto-approve' 
            
          }        
@@ -110,8 +110,8 @@ stage('apply') {
          {    ansiColor('xterm') {
   
         // values will be masked
-        sh 'echo TOKEN=githubtoken'
-        sh 'echo ADDR=http://03095bcf.ngrok.io'
+        sh 'echo TOKEN=$VAULT_TOKEN'
+        sh 'echo ADDR=$VAULT_ADDR'
            sh 'terraform show' 
            
          }        
