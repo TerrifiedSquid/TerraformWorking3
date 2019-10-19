@@ -10,9 +10,7 @@ try {
   }
 
 
-  // Run terraform init
- 
-  
+  // Run terraform init 
   stage('init') {
       node {
        withCredentials([[
@@ -24,12 +22,12 @@ try {
                         
     [$class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://6a3d5efe.ngrok.io']]) 
+   vaultAddr: 'http://03095bcf.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         // values will be masked
-       sh 'echo TOKEN=token'
-        sh 'echo ADDR=http://6a3d5efe.ngrok.io'
+       sh 'echo TOKEN=githubtoken'
+        sh 'echo ADDR=http://03095bcf.ngrok.io'
            sh 'terraform init' 
            
          }        
@@ -40,9 +38,6 @@ try {
  
 
   // Run terraform plan
- 
-  
-  
   stage('plan ') {
     node {
        withCredentials([[
@@ -54,12 +49,12 @@ try {
                         
     [$class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://6a3d5efe.ngrok.io']]) 
+   vaultAddr: 'http://03095bcf.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         // values will be masked
-       sh 'echo TOKEN=token'
-        sh 'echo ADDR=http://6a3d5efe.ngrok.io'
+       sh 'echo TOKEN=githubtoken'
+        sh 'echo ADDR=http://03095bcf.ngrok.io'
         sh 'terraform plan' 
            
          }        
@@ -83,12 +78,12 @@ stage('apply') {
                         
     [$class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://6a3d5efe.ngrok.io']]) 
+   vaultAddr: 'http://03095bcf.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         // values will be masked
-       sh 'echo TOKEN=vault-github-access-token'
-        sh 'echo ADDR=http://6a3d5efe.ngrok.io'
+       sh 'echo TOKEN=githubtoken'
+        sh 'echo ADDR=http://03095bcf.ngrok.io'
            sh 'terraform apply -input=false -auto-approve' 
            
          }        
@@ -99,7 +94,6 @@ stage('apply') {
   
 
    // Run terraform show
-   
     stage('show') {
     // Token addition
       node {
@@ -112,12 +106,12 @@ stage('apply') {
                         
     [$class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://6a3d5efe.ngrok.io']]) 
+   vaultAddr: 'http://03095bcf.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         // values will be masked
-        sh 'echo TOKEN=token'
-        sh 'echo ADDR=http://6a3d5efe.ngrok.io'
+        sh 'echo TOKEN=githubtoken'
+        sh 'echo ADDR=http://03095bcf.ngrok.io'
            sh 'terraform show' 
            
          }        
