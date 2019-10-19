@@ -22,7 +22,7 @@ try {
                         
     [$class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://03095bcf.ngrok.io']]) 
+   vaultAddr: 'http://c909c28c.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         // values will be masked
@@ -49,7 +49,7 @@ try {
                         
     [$class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://03095bcf.ngrok.io']]) 
+   vaultAddr: 'http://c909c28c.ngrok.io']]) 
          {    ansiColor('xterm') {
   
         // values will be masked
@@ -78,7 +78,7 @@ stage('apply') {
                         
     [$class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
-   vaultAddr: 'http://03095bcf.ngrok.io']]) 
+   vaultAddr: 'http://c909c28c.ngrok.io']]) 
          {    ansiColor('xterm') {
   
       //  values will be masked
