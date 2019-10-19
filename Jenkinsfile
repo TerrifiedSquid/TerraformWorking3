@@ -15,12 +15,12 @@ try {
       node {
        withCredentials([[
       
-  //   $class: 'AmazonWebServicesCredentialsBinding',
-  //      credentialsId: 'awsCredentials',
-  //    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-  //    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
+     $class: 'AmazonWebServicesCredentialsBinding',
+        credentialsId: 'awsCredentials',
+      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
                         
-  //  [
+    [
       $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://c909c28c.ngrok.io']]) 
@@ -43,12 +43,12 @@ try {
     node {
        withCredentials([[
       
- //    $class: 'AmazonWebServicesCredentialsBinding',
-//        credentialsId: 'awsCredentials',
- //     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
- //     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
+     $class: 'AmazonWebServicesCredentialsBinding',
+        credentialsId: 'awsCredentials',
+      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
                         
-  //  [
+    [
      $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://c909c28c.ngrok.io']]) 
@@ -73,12 +73,12 @@ stage('apply') {
       node {
        withCredentials([[
       
-   //  $class: 'AmazonWebServicesCredentialsBinding',
-  //      credentialsId: 'awsCredentials',
-   //   accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-   //   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY' ],
+     $class: 'AmazonWebServicesCredentialsBinding',
+        credentialsId: 'awsCredentials',
+      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY' ],
                         
-  //  [
+    [
       $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://c909c28c.ngrok.io']]) 
@@ -141,12 +141,12 @@ stage('apply') {
       node {
        withCredentials([[
       
- //    $class: 'AmazonWebServicesCredentialsBinding',
- //       credentialsId: 'awsCredentials',
- //     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-  //    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
+     $class: 'AmazonWebServicesCredentialsBinding',
+        credentialsId: 'awsCredentials',
+      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
                         
-   // [
+    [
       $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://c909c28c.ngrok.io']]) 
