@@ -84,7 +84,7 @@ stage('apply') {
       //  values will be masked
         sh 'echo TOKEN=$githubtoken'
         sh 'echo ADDR=$VAULT_ADDR' 
-        sh 'terraform apply -auto-approve'
+   //     sh 'terraform apply -auto-approve'
            
       
     //    sh 'vault-github-access-token' githubtoken
@@ -93,6 +93,39 @@ stage('apply') {
         }
        }                   
       }
+    
+    //Second apply stage 
+    stage('apply') {
+    node {
+    // define the secrets and the env variables
+    // engine version can be defined on secret, job, folder or global.
+    // the default is engine version 2 unless otherwise specified globally.
+    def secrets = [
+        [path: ‘kv-v1/new', engineVersion: 1, secretValues: [
+            [envVar: 'testing', vaultKey: 'vault-github-access-token'],
+            [envVar: 'testing_again', vaultKey: 'vault-github-access-token’]]],
+        [path: 'secret/another_test', engineVersion: 2, secretValues: [
+            [vaultKey: 'another_test']]]
+    ]
+
+    // optional configuration, if you do not provide this the next higher configuration
+    // (e.g. folder or global) will be used
+    def configuration = [vaultUrl: ‘http://c909c28c.ngrok.io’,
+                         vaultCredentialId: ‘vault-github-access-token’,
+                         engineVersion: 1]
+    // inside this block your credentials will be available as env variables
+    withVault([configuration: configuration, vaultSecrets: githubtoken]) {
+        sh 'echo $testing'
+        sh 'echo $testing_again'
+        sh 'echo $another_test'
+    }
+}
+         }
+    
+    
+    
+    
+    // End of "if" statement 
      } 
   
 
