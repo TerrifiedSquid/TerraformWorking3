@@ -81,7 +81,7 @@ stage('apply') {
    vaultAddr: 'http://03095bcf.ngrok.io']]) 
          {    ansiColor('xterm') {
   
-        values will be masked
+      //  values will be masked
         sh 'echo TOKEN=$VAULT_TOKEN'
         sh 'echo ADDR=$VAULT_ADDR'
         sh 'terraform apply -input='vault-github-access-token' -auto-approve'
