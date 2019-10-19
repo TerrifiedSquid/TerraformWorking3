@@ -15,12 +15,13 @@ try {
       node {
        withCredentials([[
       
-     $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: 'awsCredentials',
-      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
+  //   $class: 'AmazonWebServicesCredentialsBinding',
+  //      credentialsId: 'awsCredentials',
+  //    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+  //    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
                         
-    [$class: 'VaultTokenCredentialBinding', 
+  //  [
+      $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://c909c28c.ngrok.io']]) 
          {    ansiColor('xterm') {
@@ -42,12 +43,13 @@ try {
     node {
        withCredentials([[
       
-     $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: 'awsCredentials',
-      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
+ //    $class: 'AmazonWebServicesCredentialsBinding',
+//        credentialsId: 'awsCredentials',
+ //     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+ //     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
                         
-    [$class: 'VaultTokenCredentialBinding', 
+  //  [
+     $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://c909c28c.ngrok.io']]) 
          {    ansiColor('xterm') {
@@ -71,12 +73,13 @@ stage('apply') {
       node {
        withCredentials([[
       
-     $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: 'awsCredentials',
-      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY' ],
+   //  $class: 'AmazonWebServicesCredentialsBinding',
+  //      credentialsId: 'awsCredentials',
+   //   accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+   //   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY' ],
                         
-    [$class: 'VaultTokenCredentialBinding', 
+  //  [
+      $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://c909c28c.ngrok.io']]) 
          {    ansiColor('xterm') {
@@ -84,7 +87,9 @@ stage('apply') {
       //  values will be masked
         sh 'echo TOKEN=$githubtoken'
         sh 'echo ADDR=$VAULT_ADDR' 
-        sh 'terraform apply -auto-approve'
+           
+           
+        // sh 'terraform apply -auto-approve'
            
       
     //    sh 'vault-github-access-token' githubtoken
@@ -136,12 +141,13 @@ stage('apply') {
       node {
        withCredentials([[
       
-     $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: 'awsCredentials',
-      accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
+ //    $class: 'AmazonWebServicesCredentialsBinding',
+ //       credentialsId: 'awsCredentials',
+ //     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+  //    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'],
                         
-    [$class: 'VaultTokenCredentialBinding', 
+   // [
+      $class: 'VaultTokenCredentialBinding', 
    credentialsId: 'vault-github-access-token', 
    vaultAddr: 'http://c909c28c.ngrok.io']]) 
          {    ansiColor('xterm') {
